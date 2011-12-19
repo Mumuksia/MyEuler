@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="471" started-at="2011-12-19T11:54:03Z" finished-at="2011-12-19T11:54:03Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="471" started-at="2011-12-19T11:54:03Z" finished-at="2011-12-19T11:54:03Z">
+      <class name="com.euler.Pr_247">
+        <test-method status="PASS" signature="doPriorityQueue()[pri:0, instance:com.euler.Pr_247@25fa1bb6]" name="doPriorityQueue" duration-ms="454" started-at="2011-12-19T11:54:03Z" finished-at="2011-12-19T11:54:03Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>
