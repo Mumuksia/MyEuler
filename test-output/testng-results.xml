@@ -2,14 +2,14 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="471" started-at="2011-12-19T11:54:03Z" finished-at="2011-12-19T11:54:03Z">
+  <suite name="Default suite" duration-ms="28" started-at="2012-03-06T22:05:12Z" finished-at="2012-03-06T22:05:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="471" started-at="2011-12-19T11:54:03Z" finished-at="2011-12-19T11:54:03Z">
-      <class name="com.euler.Pr_247">
-        <test-method status="PASS" signature="doPriorityQueue()[pri:0, instance:com.euler.Pr_247@25fa1bb6]" name="doPriorityQueue" duration-ms="454" started-at="2011-12-19T11:54:03Z" finished-at="2011-12-19T11:54:03Z">
-        </test-method>
-      </class>
-    </test>
-  </suite>
+    <test name="Default test" duration-ms="28" started-at="2012-03-06T22:05:12Z" finished-at="2012-03-06T22:05:12Z">
+      <class name="com.euler.utils.sorting.MergeSort">
+        <test-method status="PASS" signature="doSort()[pri:0, instance:com.euler.utils.sorting.MergeSort@1f6f0bf]" name="doSort" duration-ms="12" started-at="2012-03-06T22:05:12Z" finished-at="2012-03-06T22:05:12Z">
+        </test-method> <!-- doSort -->
+      </class> <!-- com.euler.utils.sorting.MergeSort -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
