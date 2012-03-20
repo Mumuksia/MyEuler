@@ -9,6 +9,7 @@ public class QuickSort {
 	public static int[] result;
 	
 	public static int count = 0;
+	public static int count2 = 0;
 	
 	@Test
 	public void doSort(){
@@ -52,12 +53,13 @@ public class QuickSort {
 	public static void splitPivotFirst(int low, int high){
 		int i = low+1;
 		for (int j=low+1; j<=high; j++){
+			count2++;
 			if (result[j] < result[low]){
 				exchange(j, i);
 				i++;				
 			}
 		}
-		count +=high-low-1;
+		count +=high-low-1+1;
 		exchange(low, i-1);
 		
 		if (low < i-2)
@@ -68,7 +70,8 @@ public class QuickSort {
 	
 	public static void splitPivotLast(int low, int high){
 		int i = low;
-		for (int j=low+1; j<=high-1; j++){
+		for (int j=low; j<=high-1; j++){
+			count2++;
 			if (result[j] < result[high]){
 				exchange(j, i);
 				i++;				
@@ -77,10 +80,14 @@ public class QuickSort {
 		count +=high-low-1;
 		exchange(high, i);
 		
-		if (low < i-2)
-			splitPivotFirst(low, i-2);
+		if (low < i-1)
+			splitPivotLast(low, i-1);
 		if (i < high)
-			splitPivotFirst(i, high);
+			splitPivotLast(i+1, high);
+	}
+	
+	public static void splitPivotMediana(int low, int high){
+		
 	}
 	
 	private static void exchange(int i, int j) {

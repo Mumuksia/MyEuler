@@ -42,7 +42,7 @@ public class FileUtilsEuler {
 		int[] result = new int[lines.size()];
 		int i = 0;
 		for (String in : lines) {
-			result[i] = Integer.valueOf(in);
+			result[i] = Integer.valueOf(in.trim());
 			if (result[i] == 0) System.out.println(i);
 			i++;
 		}

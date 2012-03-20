@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="88" started-at="2012-03-20T11:45:33Z" finished-at="2012-03-20T11:45:33Z">
+  <suite name="Default suite" duration-ms="41" started-at="2012-03-20T17:05:53Z" finished-at="2012-03-20T17:05:53Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="88" started-at="2012-03-20T11:45:33Z" finished-at="2012-03-20T11:45:33Z">
+    <test name="Default test" duration-ms="41" started-at="2012-03-20T17:05:53Z" finished-at="2012-03-20T17:05:53Z">
       <class name="algo.QuickSortNumber">
-        <test-method status="PASS" signature="doTest()[pri:0, instance:algo.QuickSortNumber@2acdb06e]" name="doTest" duration-ms="72" started-at="2012-03-20T11:45:33Z" finished-at="2012-03-20T11:45:33Z">
+        <test-method status="PASS" signature="doTest()[pri:0, instance:algo.QuickSortNumber@25fa1bb6]" name="doTest" duration-ms="23" started-at="2012-03-20T17:05:53Z" finished-at="2012-03-20T17:05:53Z">
         </test-method>
       </class>
     </test>
