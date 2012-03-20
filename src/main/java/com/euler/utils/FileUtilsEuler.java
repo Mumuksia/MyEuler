@@ -34,5 +34,19 @@ public class FileUtilsEuler {
 		
 		return values;
 	}
+	
+	public static int[] readFileList() throws IOException{
+		@SuppressWarnings("unchecked")
+		List<String> lines = FileUtils.readLines(new File(
+				fileName));
+		int[] result = new int[lines.size()];
+		int i = 0;
+		for (String in : lines) {
+			result[i] = Integer.valueOf(in);
+			if (result[i] == 0) System.out.println(i);
+			i++;
+		}
+		return result;
+	}
 
 }

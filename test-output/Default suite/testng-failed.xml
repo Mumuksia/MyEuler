@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite verbose="0" name="Failed suite [Default suite]">
-  <test name="Default test(failed)" preserve-order="false">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)" preserve-order="true">
     <classes>
-      <class name="com.euler.Pr_247">
+      <class name="algo.QuickSortNumber">
         <methods>
           <include name="doTest"/>
         </methods>
