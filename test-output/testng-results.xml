@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="55" started-at="2012-03-30T16:08:22Z" finished-at="2012-03-30T16:08:22Z">
+  <suite name="Default suite" duration-ms="47" started-at="2012-03-30T16:55:56Z" finished-at="2012-03-30T16:55:56Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="55" started-at="2012-03-30T16:08:22Z" finished-at="2012-03-30T16:08:22Z">
+    <test name="Default test" duration-ms="47" started-at="2012-03-30T16:55:56Z" finished-at="2012-03-30T16:55:56Z">
       <class name="algo.MinimalCutgraph">
-        <test-method status="FAIL" signature="doTest()[pri:0, instance:algo.MinimalCutgraph@3d9360e2]" name="doTest" duration-ms="36" started-at="2012-03-30T16:08:22Z" finished-at="2012-03-30T16:08:22Z">
+        <test-method status="FAIL" signature="doTest()[pri:0, instance:algo.MinimalCutgraph@47315d34]" name="doTest" duration-ms="28" started-at="2012-03-30T16:55:56Z" finished-at="2012-03-30T16:55:56Z">
           <exception class="java.util.ConcurrentModificationException">
             <full-stacktrace>
               <![CDATA[java.util.ConcurrentModificationException
 	at java.util.AbstractList$Itr.checkForComodification(AbstractList.java:372)
 	at java.util.AbstractList$Itr.next(AbstractList.java:343)
-	at algo.MinimalCutgraph.cutOperation(MinimalCutgraph.java:47)
-	at algo.MinimalCutgraph.doTest(MinimalCutgraph.java:38)
+	at algo.MinimalCutgraph.cutOperation(MinimalCutgraph.java:52)
+	at algo.MinimalCutgraph.doTest(MinimalCutgraph.java:42)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)

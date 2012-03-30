@@ -1,30 +1,35 @@
 package algo;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
 import org.testng.annotations.Test;
 
 import com.euler.utils.FileUtilsEuler;
-import com.euler.utils.graphs.AdjacencyList;
-import com.euler.utils.graphs.Edge;
+import com.euler.utils.graphs.Edg;
 import com.euler.utils.graphs.Node;
 
 public class MinimalCutgraph {
 	
-	private static AdjacencyList adjList = new AdjacencyList();
+	private static Map<Integer, List<Edg>> adjList = new HashMap<Integer, List<Edg>>();
 	
 	public void init() throws IOException{
 		FileUtilsEuler.fileName="d:/temp/kargerAdj.txt";
 		int[][] lines = FileUtilsEuler.readFileListSpaces();
 		for (int i=0; i<lines.length; i++){
-			for (int j=0; j<10; j++){
+			List<Edg> edges = new ArrayList<Edg>();
+			for (int j=0; j<10; j++){				
 				if (lines[i][j] > 0){
-			adjList.addEdge(new Node(i), new Node(lines[i][j]), 0);			
+					edges.add(new Edg(i, lines[i][j]));                	
 				}
+				
 			}
+			adjList.put(i, edges);
 		}
 		
 	}
@@ -32,51 +37,51 @@ public class MinimalCutgraph {
 	@Test
 	public void doTest() throws IOException{
 		init();
-		System.out.println(adjList.getAllEdges().size());
-		System.out.println(adjList.getSourceNodeSet().size());
-		while (adjList.getSourceNodeSet().size() > 2){			
-			cutOperation(random(adjList.getSourceNodeSet().size(), adjList.getSourceNodeSet()));
+		System.out.println(adjList.keySet().size());
+		while (adjList.keySet().size() > 2){
+			cutOperation(randomEdge());
 		}
+		System.out.println(adjList.keySet().size());
 		
 	}
 	
-	public static void cutOperation(Node nd){
-		System.out.println(nd.name);
-		synchronized (adjList) {
-			Node res = random(adjList.getAdjacent(nd)).to;
-			for(Edge e : adjList.getAdjacent(nd)){
-				if (res != e.to && res != nd && e.to != nd){
-				adjList.addEdge(res, e.to, 0);
-				}
+	public static void cutOperation(Edg e){
+		int from = e.from;
+		List<Edg> edges = adjList.get(e.to);
+		
+		for (Edg edg : edges) {
+			if (edg != e && from != edg.from){				
+				adjList.get(edg.from).add(new Edg(edg.from, from));
+				adjList.get(edg.from).remove(edg);
+			} else {
+				edges.remove(edg);
 			}
-				
 		}
-		adjList.getSourceNodeSet().remove(nd);
-	
+		adjList.get(from).addAll(edges);
+		adjList.keySet().remove(e.to);
 	}
-	
-	public Node random(int size, Set<Node> mySet){
-		int item = new Random().nextInt(size); // In real life, the Random object should be rather more shared than this
-		int i = 0;
-		for(Node obj : mySet)
+
+	public Edg randomEdge(){
+		Set<Integer> nodes = adjList.keySet();
+
+		int item = new Random().nextInt(nodes.size());
+		int i = 0;		
+		for(int obj : nodes)
 		{
 		    if (i == item)
-		        return obj;
+		       break;
 		    i = i + 1;
 		}
-		return null;
-	}
-	
-	public static Edge random(List<Edge> mySet){
-		int item = new Random().nextInt(mySet.size()); // In real life, the Random object should be rather more shared than this
-		int i = 0;
-		for(Edge obj : mySet)
+		List<Edg> edges = adjList.get(i);
+		item = new Random().nextInt(edges.size());
+		i = 0;		
+		for(Edg obj : edges)
 		{
 		    if (i == item)
-		        return obj;
+		       return obj;
 		    i = i + 1;
 		}
-		return null;
+		return null;		
 	}
 
 }
