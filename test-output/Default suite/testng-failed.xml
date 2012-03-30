@@ -3,7 +3,7 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)" preserve-order="true">
     <classes>
-      <class name="algo.QuickSortNumber">
+      <class name="algo.MinimalCutgraph">
         <methods>
           <include name="doTest"/>
         </methods>

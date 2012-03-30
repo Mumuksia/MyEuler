@@ -8,8 +8,9 @@ public class QuickSort {
 	
 	public static int[] result;
 	
-	public static int count = 0;
-	public static int count2 = 0;
+	public static int countLast = 0;
+	public static int countFirst = 0;
+	public static int countMedium = 0;
 	
 	@Test
 	public void doSort(){
@@ -53,13 +54,12 @@ public class QuickSort {
 	public static void splitPivotFirst(int low, int high){
 		int i = low+1;
 		for (int j=low+1; j<=high; j++){
-			count2++;
+			countFirst++;
 			if (result[j] < result[low]){
 				exchange(j, i);
 				i++;				
 			}
 		}
-		count +=high-low-1+1;
 		exchange(low, i-1);
 		
 		if (low < i-2)
@@ -68,32 +68,76 @@ public class QuickSort {
 			splitPivotFirst(i, high);
 	}
 	
-	public static void splitPivotLast(int low, int high){
-		int i = low;
-		for (int j=low; j<=high-1; j++){
-			count2++;
-			if (result[j] < result[high]){
+	public static void splitPivotLastTest(int low, int high){
+		exchange(low, high);
+		int i = low+1;
+		for (int j=low+1; j<=high; j++){
+			countLast++;
+			if (result[j] < result[low]){
 				exchange(j, i);
 				i++;				
 			}
 		}
-		count +=high-low-1;
-		exchange(high, i);
+		exchange(low, i-1);
 		
-		if (low < i-1)
-			splitPivotLast(low, i-1);
+		if (low < i-2)
+			splitPivotLastTest(low, i-2);
 		if (i < high)
-			splitPivotLast(i+1, high);
+			splitPivotLastTest(i, high);
 	}
 	
-	public static void splitPivotMediana(int low, int high){
+	public static void splitPivotMediana(int low, int high){		
+		int mediana = getMediana(low, high);
+		if ((result[high] < result[low] && result[high] > result[mediana]) || (result[high] > result[low] && result[high] < result[mediana])){
+			exchange(low, high);
+		} else if ((result[mediana] < result[low] && result[mediana] > result[high]) || (result[mediana] > result[low] && result[mediana] < result[high])){
+			exchange(mediana, low);			
+		} 
 		
+		int i = low+1;
+		for (int j=low+1; j<=high; j++){
+			countMedium++;
+			if (result[j] < result[low]){
+				exchange(j, i);
+				i++;				
+			}
+		}
+		exchange(low, i-1);
+		
+		if (low < i-2)
+			splitPivotMediana(low, i-2);
+		if (i < high)
+			splitPivotMediana(i, high);
+		
+	}
+	
+	public static int getMediana(int low, int high){
+
+			return low + (high-low)/2;
+
 	}
 	
 	private static void exchange(int i, int j) {
 		int temp = result[i];
 		result[i] = result[j];
 		result[j] = temp;
+	}
+	
+	public static void splitPivotLast(int low, int high){
+		int i = low;
+		for (int j=low; j<high; j++){
+			countLast++;
+			if (result[j] < result[high]){
+				exchange(j, i);
+				i++;				
+			}
+		}
+		exchange(high, i);
+		
+		if (low < i-1)
+			splitPivotLast(low, i-1);
+		if (i+1 < high)
+			splitPivotLast(i+1, high);
 	}
 
 }

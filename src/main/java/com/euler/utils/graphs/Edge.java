@@ -2,7 +2,7 @@ package com.euler.utils.graphs;
 
 public class Edge implements Comparable<Edge> {
 	   
-	   final Node from, to; 
+	   public final Node from, to; 
 	   final int weight;
 	   
 	   public Edge(final Node argFrom, final Node argTo, final int argWeight){

@@ -2,7 +2,7 @@ package com.euler.utils.graphs;
 
 public class Node implements Comparable<Node> {
 	   
-	   final int name;
+	   public final int name;
 	   boolean visited = false;
 	   
 	   public Node(final int argName) {

@@ -49,7 +49,7 @@ public class AdjacencyList {
 	       return adjacencies.keySet();
 	   }
 
-	   public Collection<Edge> getAllEdges(){
+	   public List<Edge> getAllEdges(){
 	       List<Edge> edges = new ArrayList<Edge>();
 	       for(List<Edge> e : adjacencies.values()){
 	           edges.addAll(e);

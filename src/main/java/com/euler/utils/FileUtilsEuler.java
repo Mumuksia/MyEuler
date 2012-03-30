@@ -48,5 +48,30 @@ public class FileUtilsEuler {
 		}
 		return result;
 	}
+	
+	public static int[][] readFileListSpaces() throws IOException{
+		@SuppressWarnings("unchecked")
+		List<String> lines = FileUtils.readLines(new File(
+				fileName));
+		
+		int[][] result = new int[lines.size()][lines.size()];
+		int i = 0;
+		for (String in : lines) {
+			in = in.trim();
+			in = in.replaceAll("\t", " ");
+			in = in.replaceAll(" +", ",");
+			
+			String[] tempin = in.split(",");
+			int j = 0;
+			for (String str : tempin) {
+				result[i][j] = Integer.valueOf(str.trim());
+				j++;
+			}			
+			i++;
+		}
+		return result;
+	}
+	
+	
 
 }
