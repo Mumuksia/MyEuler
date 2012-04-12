@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.testng.annotations.Test;
 
@@ -16,7 +17,7 @@ import com.euler.utils.graphs.Node;
 
 public class MinimalCutgraph {
 	
-	private static Map<Integer, List<Edg>> adjList = new HashMap<Integer, List<Edg>>();
+	private static Map<Integer, List<Edg>> adjList = new ConcurrentHashMap<Integer, List<Edg>>();
 	
 	public void init() throws IOException{
 		FileUtilsEuler.fileName="d:/temp/kargerAdj.txt";
@@ -40,14 +41,17 @@ public class MinimalCutgraph {
 		System.out.println(adjList.keySet().size());
 		while (adjList.keySet().size() > 2){
 			cutOperation(randomEdge());
+			System.out.println(adjList.keySet().size());
 		}
-		System.out.println(adjList.keySet().size());
 		
 	}
 	
 	public static void cutOperation(Edg e){
 		int from = e.from;
 		List<Edg> edges = adjList.get(e.to);
+	
+		synchronized (edges) {
+			
 		
 		for (Edg edg : edges) {
 			if (edg != e && from != edg.from){				
@@ -57,14 +61,16 @@ public class MinimalCutgraph {
 				edges.remove(edg);
 			}
 		}
+		
 		adjList.get(from).addAll(edges);
 		adjList.keySet().remove(e.to);
+		}
 	}
 
 	public Edg randomEdge(){
 		Set<Integer> nodes = adjList.keySet();
 
-		int item = new Random().nextInt(nodes.size());
+		int item = new Random().nextInt(nodes.size()-1);
 		int i = 0;		
 		for(int obj : nodes)
 		{
@@ -73,7 +79,7 @@ public class MinimalCutgraph {
 		    i = i + 1;
 		}
 		List<Edg> edges = adjList.get(i);
-		item = new Random().nextInt(edges.size());
+		item = new Random().nextInt(edges.size()-1);
 		i = 0;		
 		for(Edg obj : edges)
 		{

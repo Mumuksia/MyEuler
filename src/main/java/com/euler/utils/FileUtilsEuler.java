@@ -17,15 +17,14 @@ public class FileUtilsEuler {
 		List<String> lines = FileUtils.readLines(new File(
 				fileName));	
 		
-		int[][] values = new int[size][size];
+		int[][] values = new int[Integer.MAX_VALUE][2];
 		
 		int i= 0;
 		for(String l : lines){
 		String[] ls = l.split(" ");
 		int j = 0;
 		for (String str : ls) {
-			values[i][j] = Integer.valueOf(str).intValue();
-			System.out.print(values[i][j] + " ");
+			values[i][j] = Integer.valueOf(str).intValue();			
 			j++;
 		}
 		System.out.println();

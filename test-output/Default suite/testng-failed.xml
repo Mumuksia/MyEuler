@@ -3,7 +3,7 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)" preserve-order="true">
     <classes>
-      <class name="algo.MinimalCutgraph">
+      <class name="algo.kosaraju.ResultKosaraju">
         <methods>
           <include name="doTest"/>
         </methods>
