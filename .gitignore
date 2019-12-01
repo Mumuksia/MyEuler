@@ -1,0 +1,16 @@
+*.log
+.*.swp
+.*.un~
+.checkstyle
+.classpath
+.idea/
+.junk/
+.project
+.settings/
+target/
+*.iml
+nb-configuration.xml
+pom.xml.versionsBackup
+*.pyc
+*.egg-info/
+*.class
